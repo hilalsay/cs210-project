@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Popup Explanation</title>
+    <style>
+       body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    overflow-x: hidden;
+    background-size: cover; 
+            background-attachment: fixed;
+            background-image: url('https://media-s3-us-east-1.ceros.com/vista-equity-partners/images/2021/12/20/3ad92ad40dc71c09176963aa4b1ff254/vista-ceros-header-gi-1173280131.gif?imageOpt=1'); /* Add your image URL here */
+            background-color: rgb(255, 255, 255);
+}
+
+.flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.flex-item {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin: auto;
+    text-align: center;
+    border-radius: 12.56px;
+}
+
+.image-container {
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+}
+
+.popup-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.image-container:hover .popup-text {
+    display: block;
+    
+}
+
+h2 {
+    color: #007BFF;
+    font-size: 24px; /* Increase the font size */
+}
+
+hr {
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.text {
+    font-size: 18px; /* Increase the font size */
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+.grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 2rem;
+    
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.grid-item {
+    width: calc(50% - 1rem); /* Set the width to 50% with a 1rem gap in between for larger screens */
+    margin-bottom: 2rem; /* Adjust margin as needed */
+
+    @media (max-width: 768px) {
+        width: 100%; /* Set the width to 100% for medium-sized screens */
+    }
+
+    @media (max-width: 480px) {
+        width: calc(100% - 2rem); /* Set the width to 100% with a smaller gap for small screens (phones) */
+        margin-bottom: 1rem; /* Adjust margin for smaller screens */
+    }
+}
+.go-back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999; /* Ensure the button stays on top of other elements */
+            margin: 0;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .go-back-button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    
+    
+
+    <div class="grid-container">  
+        <div class="flex-row">
+        <div class="flex-item">
+            <h2 id="text-around-image">Steps and Instagram Likes</h2>
+            <hr>
+            <p class="text">
+                This graphs show the step counts and likes that are normalized as line chart. The second one is smoothed and better to understand. They are mostly correlated negatively.
+
+            </p>
+            <div class="images-container">
+                <div class="image-container">
+                    <img class="image" src="stepcountandlikesnormalizedlinechart.png" alt="Graph Image 1">
+                    <div class="popup-text">This is the line chart for normalized step counts and my instagram likes. Both colors are present and they do not overlap that much.</div>
+                </div>
+                <div class="image-container">
+                    <img class="image" src="rolledlinechartlikesandsteps.png" alt="Graph Image 2">
+                    <div class="popup-text">This chart has the rolled averages of likes and step counts to get a better visualization.</div>
+                </div>
+                <!-- Add more image-container divs as needed -->
+            </div>
+        </div></div> 
+
+    <div class="flex-row">
+        <div class="flex-item">
+            <h2 id="text-around-image">Distributions of Datasets</h2>
+            <hr>
+            <p class="text">
+                This graph has the distributions of the datasets as line plot and histograms. Lecture hours are zero on holidays so there is zero values more. 
+            </p>
+            <div class="images-container">
+                <div class="image-container">
+                    <img class="image" src="3lineplots.png" alt="Graph Image 1">
+                    <div class="popup-text">Line plot graphs for the three datasets.</div>
+                </div>
+                <div class="image-container">
+                    <img class="image" src="3histogramsdistributions.png" alt="Graph Image 2">
+                    <div class="popup-text">Histogram distributions for the three datasets.</div>
+                </div>
+                <!-- Add more image-container divs as needed -->
+            </div>
+        </div></div>
+
+        <div class="flex-row">
+            <div class="flex-item">
+                <h2 id="text-around-image">Scatter Plot of Likes & Lecture Hours</h2>
+                <hr>
+                <p class="text"> There are more likes value when lecture hours are zero because there was more zeros in the lecture hour data. Likes can be more than other days when there are no lectures.
+                </p>
+                <div class="images-container">
+                    <div class="image-container">
+                        <img class="image" src="scatterlikesandlecturehours.png" alt="Graph Image 1">
+                        <div class="popup-text">This shows the scatter plot of lecture hours and likes. It helps to understand how data is distributed. </div>
+                    </div>
+              
+                    <!-- Add more image-container divs as needed -->
+                </div>
+            </div></div>
+
+
+            <div class="flex-row">
+                <div class="flex-item">
+                    <h2 id="text-around-image">Combined Line Plot Likes & Lectures</h2>
+                    <hr>
+                    <p class="text">
+                        There are two graphs and the second one is smoothed to see the relationship better. We can see that when lecture hours are zero there are more likes than other days.
+                    </p>
+                    <div class="images-container">
+                        <div class="image-container">
+                            <img class="image" src="lineplotlikeslectures.png" alt="Graph Image 1">
+                            <div class="popup-text">Line plot of likes and lectures over time.</div>
+                        </div>
+                        <div class="image-container">
+                            <img class="image" src="lineplotsmoothedlikeslectures.png" alt="Graph Image 2">
+                            <div class="popup-text">Smoothed line plot of likes and lectures over time.</div>
+                        </div>
+                        <!-- Add more image-container divs as needed -->
+                    </div>
+                </div></div>
+
+
+            <div class="flex-row">
+                    <div class="flex-item">
+                        <h2 id="text-around-image">Line Charts Average Steps & Normalized with Likes </h2>
+                        <hr>
+                        <p class="text">
+                           The first graph has the average values of step counts weekly. The second graph has normalized values to compare likes and step counts. There is a relation in the second graph, that is when steps counts are more instagram likes tend to be less. It is especially visible between 40-50 which is this semester. I can see that face-to-face education increased my step counts and decreased my instagram likes. 
+                        </p>
+                        <div class="images-container">
+                            <div class="image-container">
+                                <img class="image" src="weeklyaveragesteps.png" alt="Graph Image 1">
+                                <div class="popup-text">Weekly average step counts. The parts with a colored background showes minimum and maximum values when there is data on the same week in different years.</div>
+                            </div>
+                            <div class="image-container">
+                                <img class="image" src="normalizedstepsandlikes.png" alt="Graph Image 2">
+                                <div class="popup-text">Normalized values to show both likes and step counts. </div>
+                            </div>
+                            <!-- Add more image-container divs as needed -->
+                        </div>
+            </div></div>
+            <div class="flex-row">
+                <div class="flex-item">
+                    <h2 id="text-around-image">Line Chart with Seperated Years </h2>
+                    <hr>
+                    <p class="text"> This graphs shows every year seperately without calculating average of them.
+                    </p>
+                    <div class="images-container">
+                        <div class="image-container">
+                            <img class="image" src="stepsseparatedbyyear.png" alt="Graph Image 1">
+                            <div class="popup-text">The ratio is different for date values to not overlap.</div>
+                        </div>
+                        <div class="image-container">
+                            <img class="image" src="stepsseperatedbyyearwithoutdates.png" alt="Graph Image 2">
+                            <div class="popup-text">Same graph without date information on dots.</div>
+                        </div>
+                        
+                    </div>
+                </div></div>
+            <div class="flex-row">
+                <div class="flex-item">
+                    <h2 id="text-around-image">Correlation Matrix</h2>
+                    <hr>
+                    <p class="text"> Here is the correlation matrix of the datasets. Step count and Likes have negative correlation but step counts and lecture hours have positive correlation. Also lecture hours and likes have negative correlation.
+                    </p>
+                    <div class="images-container">
+                        <div class="image-container">
+                            <img class="image" src="correlationmatrix.png" alt="Graph Image 1">
+                            <div class="popup-text">This shows the correlation matrix of lecture hours, likes and step counts. </div>
+                        </div>
+                    
+                    </div>
+                </div></div>
+
+                <div class="flex-row">
+                    <div class="flex-item">
+                        <h2 id="text-around-image">Step Counts Graphs</h2>
+                        <hr>
+                        <p class="text"> There are different graphs of step count data.
+                        </p>
+                        <div class="images-container">
+                            <div class="image-container">
+                                <img class="image" src="monthlyaveragestepcount.png" alt="Graph Image 1">
+                                <div class="popup-text">This graph is the monthly average step count. </div>
+                            </div>
+                            <div class="image-container">
+                                <img class="image" src="yearlyaveragestepcount.png" alt="Graph Image 1">
+                                <div class="popup-text">This is the yearly average step count. </div>
+                            </div>                            <div class="image-container">
+                                <img class="image" src="stepcountmonthlyseasonality.png" alt="Graph Image 1">
+                                <div class="popup-text">This is monthly seasonality of step counts. They are relatively less in holidays. </div>
+                            </div>                            <div class="image-container">
+                                <img class="image" src="stepcounthist.png" alt="Graph Image 1">
+                                <div class="popup-text">Histogram of step counts. </div>
+                            </div>                        
+                        </div>
+                    </div></div>
+    
+                    <div class="flex-row">
+                        <div class="flex-item">
+                            <h2 id="text-around-image">Step Counts Graphs</h2>
+                            <hr>
+                            <p class="text"> There are different graphs of instagram likes data.
+                            </p>
+                            <div class="images-container">
+                                <div class="image-container">
+                                    <img class="image" src="monthlyaveragelikes.png" alt="Graph Image 1">
+                                    <div class="popup-text">This graph is the monthly average instagram likes. </div>
+                                </div>
+                                <div class="image-container">
+                                    <img class="image" src="yearlyaveragelikes.png" alt="Graph Image 1">
+                                    <div class="popup-text">This is the yearly average instagram likes. </div>
+                                </div>                            <div class="image-container">
+                                    <img class="image" src="histogramoflikes.png" alt="Graph Image 1">
+                                    <div class="popup-text">This is histogram of likes. It is right skewed. </div>
+                                </div>                                                 
+                            </div>
+                        </div></div>
+                        <div class="flex-row">
+                            <div class="flex-item">
+                                <h2 id="text-around-image">Lecture Hours Graphs</h2>
+                                <hr>
+                                <p class="text"> There are different graphs of lecture hours data.
+                                </p>
+                                <div class="images-container">
+                                    <div class="image-container">
+                                        <img class="image" src="monthlyaveragelecture.png" alt="Graph Image 1">
+                                        <div class="popup-text">This graph is the monthly average lecture hours. There are no lectures in summer. </div>
+                                    </div>
+                                    <div class="image-container">
+                                        <img class="image" src="averagelecturehourbyday.png" alt="Graph Image 1">
+                                        <div class="popup-text">This is the average lecture hour count for each day. Weekends are always zero. </div>
+                                    </div>                                                                      
+                                </div>
+                            </div></div>
+                            <div class="flex-row">
+                                <div class="flex-item">
+                                    <h2 id="text-around-image">Comparison: Side by Side</h2>
+                                    <hr>
+                                    <p class="text"> This shows the lecture hours instagram likes and step counts on the
+                                         same graph with normalized values. Usually the step counts and lecture hours are 
+                                         both low and both high and the instagram likes is opposite of them. Between March-May 2023 there was online education. This period has a different pattern. 
+                                    </p>
+                                    <div class="images-container">
+                                        <div class="image-container">
+                                            <img class="image" src="normalizedmonthlyaverages.png" alt="Graph Image 1">
+                                            <div class="popup-text">This graph is the monthly average of all three of the datasets. </div>
+                                        </div>
+                                                                                        
+                                    </div>
+                                </div></div>
+                    <div class="flex-row">
+                        <div class="flex-item">
+                            <h2 id="text-around-image">Comparison: Top of Each Other</h2>
+                            <hr>
+                            <p class="text"> This is a different representation of the previous graph. 
+                            </p>
+                            <div class="images-container">
+                                <div class="image-container">
+                                    <img class="image" src="3ofthembarchart.png" alt="Graph Image 1">
+                                    <div class="popup-text">This graph is the normalized values on the bar chart of all three of the datasets. </div>
+                                </div>
+                                                                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="flex-item">
+                            <h2 id="text-around-image">Multiple Plots</h2>
+                            <hr>
+                            <p class="text"> Here is more pair plots to see them to decide what to use.
+                            </p>
+                            <div class="images-container">
+                                <div class="image-container">
+                                    <img class="image" src="6x6pairplot.png" alt="Graph Image 1">
+                                    <div class="popup-text">Pair plots of of the datasets including date information. </div>
+                                </div>
+                                <div class="image-container">
+                                    <img class="image" src="5x5plottedlecture.png" alt="Graph Image 1">
+                                    <div class="popup-text">Pair plots of of the datasets including date information, excluding lecture hour from rows and columns and plotting it by colors in each graph. Helps to see the relations of everything at the same time. </div>
+                                </div>                                        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="flex-item">
+                            <h2 id="text-around-image">Circular Graphs</h2>
+                            <hr>
+                            <p class="text">  The circular representation to see al times together. Likes and step counts are opposite of each other when they have maximum values the other is less. It is visible that when there is lecture step counts are more and when there is no lecture instagram likes are more.
+                            </p>
+                            <div class="images-container">
+                                <div class="image-container">
+                                    <img class="image" src="circularlikesandsteps.png" alt="Graph Image 1">
+                                    <div class="popup-text">Circular area chart with likes and step counts. </div>
+                                </div>
+                                <div class="image-container">
+                                    <img class="image" src="circularaddedlecturepng.png" alt="Graph Image 1">
+                                    <div class="popup-text">Circular area chart that shows also the lecture hours. </div>
+                                </div>                                        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="flex-item">
+                            <h2 id="text-around-image">Averages for Each Day of Week</h2>
+                            <hr>
+                            <p class="text"> The pattern of these also shows that when there is more lectures, step counts are more and instagram likes is less like on Monday and Wednesday. 
+                            </p>
+                            <div class="images-container">
+                                <div class="image-container">
+                                    <img class="image" src="avgofalleachday.png" alt="Graph Image 1">
+                                    <div class="popup-text">3 plots for each data set tp see each day of week's averages. </div>
+                                </div>
+                                                                       
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="flex-item">
+                            <h2 id="text-around-image">Averages for Weekday & Weekend</h2>
+                            <hr>
+                            <p class="text"> There are more likes on weekends than weekdays but step counts are more on weekdays than weekends. This may be due to the lectures on weekdays.
+                            </p>
+                            <div class="images-container">
+                                <div class="image-container">
+                                    <img class="image" src="averagelikesweekdayweekend.png" alt="Graph Image 1">
+                                    <div class="popup-text"> Average Likes for Weekdays and Weekends</div>
+                                </div>
+                                <div class="image-container">
+                                    <img class="image" src="averagestepsweekdayweekend.png" alt="Graph Image 1">
+                                    <div class="popup-text"> Average Step Count for Weekdays and Weekends</div>
+                                </div>
+                                                                  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="flex-item">
+                            <h2 id="text-around-image">Line Charts with Three Datasets</h2>
+                            <hr>
+                            <p class="text"> It is visible that when there is less lecture hours instagram likes are more. This means I have more time to spend on social media. Also step counts are more when the lecture hours are more and I go to lectures. It does not matter which graph, the same pattern is visible in all three of them. 
+                            </p>
+                            <div class="images-container">
+                                <div class="image-container">
+                                    <img class="image" src="normalizedweekdaylinechart.png" alt="Graph Image 1">
+                                    <div class="popup-text"> Normalized line chart with average of three data sets for each weekday.</div>
+                                </div>
+                                <div class="image-container">
+                                    <img class="image" src="normalizedmonthlinechart.png" alt="Graph Image 2">
+                                    <div class="popup-text"> Normalized line chart with average of three data sets for each month in a year.</div>
+                                </div>
+                                <div class="image-container">
+                                    <img class="image" src="normalizedweeklinechart.png" alt="Graph Image 3">
+                                    <div class="popup-text"> Normalized line chart with average of three data sets for each week in a year.</div>
+                                </div>                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="flex-item">
+                            <h2 id="text-around-image">Machine Learning</h2>
+                            <hr>
+                            <p class="text"> There are more likes on weekends than weekdays but step counts are more on weekdays than weekends. This may be due to the lectures on weekdays.
+                            </p>
+                            <div class="images-container">
+                                <div class="image-container">
+                                    <img class="image" src="averagelikesweekdayweekend.png" alt="Graph Image 1">
+                                    <div class="popup-text"> Average Likes for Weekdays and Weekends</div>
+                                </div>
+                                <div class="image-container">
+                                    <img class="image" src="averagestepsweekdayweekend.png" alt="Graph Image 1">
+                                    <div class="popup-text"> Average Step Count for Weekdays and Weekends</div>
+                                </div>
+                                                                  
+                            </div>
+                        </div>
+                    </div>
+    </div>
+    <button class="go-back-button" onclick="goBack()">Go Back</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
