@@ -1594,22 +1594,16 @@ plt.show()
 
 import pandas as pd
 
-# Calculate average step count based on the day of the week
 day_of_week_avg_step_count = df_filtered.groupby('day_of_week')['step_count'].mean()
 
-# Create new_week_data DataFrame
 new_week_data = pd.DataFrame({'Lecture Hour': [5, 4, 4, 2, 5, 0, 0]})
 
-# Fill in additional information
 new_week_data['average_step_count'] = new_week_data['Lecture Hour'].map(day_of_week_avg_step_count)
 new_week_data['month'] = df_filtered['month'].mean()
 new_week_data['interaction_term'] = new_week_data['Lecture Hour'] * new_week_data['average_step_count']
 
-# Map day_of_week based on the given order
 day_of_week_mapping = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6}
 new_week_data['day_of_week'] = new_week_data['Lecture Hour'].map(day_of_week_mapping)
-
-# Display the resulting DataFrame
 print(new_week_data)
 
 
