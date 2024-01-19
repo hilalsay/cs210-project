@@ -3,7 +3,7 @@
 This is my Data science project using my own instagram likes, step counts and lecture hours data. 
 You can see the website of my project [here](https://hilalsay.github.io/cs210-project/). This website includes the presentation of my project. In the analysis page if you click on the graphs you can see their explanations.
 
-The code behind the graphs is available on the website. Also it is uploaded as .py and .jpynb if anyone wants to download them.
+The code behind the graphs is available on the website. Also it is uploaded as .py and .jpynb if anyone wants to download them. .html files are used for the website.
 
 ### Motivation
 My motivation on this project was to discover how my daily activites were distributed. I was searching for relationships between my Instagram likes and step counts in my both busy days and holidays. The idea on my mind while starting this project was "Does my free time and lecture hours affect my Instagram likes and step counts?". It was interesting to see the results become visualized.
